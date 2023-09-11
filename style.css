@@ -2,43 +2,227 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 main {
   display: flex;
   justify-content: start;
   height: 100vh;
+  /* width: 100%; */
 }
-aside {
+.left-side {
   width: 240px;
   height: 100%;
   border-right: 1px solid grey;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding: 30px;
-  font-size: 24px;
+  justify-content: start;
+  gap: 50px;
+  padding: 30px 15px;
+  font-size: 22px;
   position: fixed;
+  z-index: 10;
+  background-color: white;
+}
+.side-heading {
+  padding: 0 15px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.side-heading svg {
+  display: none;
 }
 .side-items {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  gap: 4px;
+  font-size: medium;
 }
-.side-item {
+.side-item,
+.footer-item {
   cursor: pointer;
-  padding: 10px 0;
+  font-size: 17px;
+  padding: 13px;
+  color: black;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.side-item-svg,
+.side-bottom-svg,
+.footer-item-svg {
+  transition: all 0.4s ease-in-out;
+}
+.side-item img,
+.footer-item img {
+  border-radius: 50%;
+}
+.side-item:hover {
+  background-color: rgba(163, 162, 162, 0.205);
+  border-radius: 8px;
+  .side-item-svg {
+    scale: 1.1;
+  }
+}
+.side-bottom {
+  position: fixed;
+  bottom: 30px;
+  padding: 0 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.side-bottom:hover {
+  .side-bottom-svg {
+    scale: 1.1;
+  }
 }
 .center {
-  margin-left: 260px;
+  margin-left: 240px;
+  /* width: calc(100vh - 480px); */
+  width: 100%;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 30px;
-  position: absolute;
+  overflow: auto;
+}
+.center::-webkit-scrollbar {
+  display: none;
+}
+.center-heading {
+  background-color: black;
+  color: white;
+  /* width: calc(100% - 240px); */
+  width: inherit;
+  min-height: 81px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  letter-spacing: 4px;
+  font-weight: bold;
+  position: fixed;
+}
+.center-heading p {
+  background-color: black;
+  padding: 17px;
+  cursor: pointer;
+}
+.feed {
+  margin-top: 90px;
+  margin-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 .posts {
-  width: 300px;
+  width: 400px;
+  height: 800px;
+  background-color: white;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.username {
+  min-height: 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  font-size: 18px;
+}
+.post-img {
   height: 500px;
-  background-color: brown;
+  width: 100%;
+  background-color: aqua;
+  border-radius: 6px;
+}
+.post-img-details {
+  height: 250px;
+  width: 100%;
+  border-bottom: 1px solid grey;
+}
+.right-side {
+  min-width: 240px;
+  height: 100vh;
+  border-left: 1px solid grey;
+  position: relative;
+  right: 0;
+  /* z-index: 10; */
+  background-color: white;
+}
+.footer-items {
+  display: none;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  min-height: 48px;
+}
+.footer-item {
+  padding: 12px;
+  height: 100%;
+}
+.footer-item:hover {
+  .footer-item-svg {
+    scale: 1.1;
+  }
+}
+.footer-item p {
+  display: none;
+}
+@media only screen and (max-width: 767px) {
+  .left-side {
+    display: none;
+  }
+  .center {
+    margin: 0;
+  }
+  .footer-items {
+    display: flex;
+  }
+}
+@media only screen and (max-width: 1159px) {
+  .right-side {
+    display: none;
+  }
+}
+@media only screen and (max-width: 1263px) and (min-width: 768px) {
+  .center {
+    margin-left: 72px;
+  }
+}
+@media only screen and (max-width: 1263px) {
+  .side-heading > p,
+  .side-item p,
+  .side-bottom p {
+    display: none;
+  }
+  .side-heading svg {
+    display: block;
+  }
+  .side-heading {
+    padding: 12px;
+    border-radius: 8px;
+  }
+  .left-side {
+    max-width: 72px;
+    padding: 20px 12px;
+    align-items: center;
+  }
+  .side-heading:hover {
+    .side-heading-svg {
+      scale: 1.1;
+      transition: all 0.4s ease-in-out;
+    }
+    background-color: rgba(163, 162, 162, 0.205);
+  }
 }
