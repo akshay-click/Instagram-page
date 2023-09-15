@@ -39,6 +39,9 @@ main {
   gap: 4px;
   font-size: medium;
 }
+.side-items a {
+  text-decoration: none;
+}
 .side-item,
 .footer-item {
   cursor: pointer;
@@ -262,7 +265,10 @@ main {
   flex-direction: column;
 }
 .name > .username {
-  cursor: pointer;
+  text-decoration: none;
+  color: black;
+  font-size: 15px;
+  font-weight: 500;
 }
 .full-name {
   font-size: 14px;
